@@ -20,7 +20,7 @@
                         <form action="<?php echo base_url('auth'); ?>" method="post" novalidate>
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email</label>
-                                <input type="email" name="email" id="email" class="form-control <?php echo form_error('email') ? 'is-invalid' : (isset($_POST['email']) ? 'is-valid' : ''); ?>" value="<?php echo set_value('email'); ?>" placeholder="Masukkan email">
+                                <input type="email" name="email" id="email" class="form-control <?php echo form_error('email') ? 'is-invalid' : (isset($_POST['email']) ? ((isset($wrong_field) && $wrong_field == 'email_not_found') ? 'is-invalid' : 'is-valid') : ''); ?>" value="<?php echo set_value('email'); ?>" placeholder="Masukkan email">
                                 <?php if (form_error('email')): ?>
                                     <div class="invalid-feedback"><?php echo form_error('email'); ?></div>
                                 <?php endif; ?>
@@ -28,7 +28,7 @@
                             <div class="mb-3">
                                 <label for="password" class="form-label">Password</label>
                                 <div class="input-group has-validation">
-                                    <input type="password" name="password" id="password" class="form-control <?php echo form_error('password') ? 'is-invalid' : (isset($_POST['password']) ? 'is-valid' : ''); ?>" value="<?php echo set_value('password'); ?>" placeholder="Masukkan password">
+                                    <input type="password" name="password" id="password" class="form-control <?php echo form_error('password') ? 'is-invalid' : (isset($_POST['password']) ? ((isset($wrong_field) && $wrong_field == 'wrong_password') ? 'is-invalid' : 'is-valid') : ''); ?>" value="<?php echo set_value('password'); ?>" placeholder="Masukkan password">
                                     <button class="btn btn-outline-secondary btn-toggle-password" type="button" tabindex="-1" aria-label="Toggle password visibility">
                                         <i class="bi bi-eye"></i>
                                     </button>
